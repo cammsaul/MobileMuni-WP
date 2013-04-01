@@ -1,0 +1,60 @@
+﻿<Application 
+    x:Class="MobileMuni.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:maps="clr-namespace:Microsoft.Phone.Controls.Maps;assembly=Microsoft.Phone.Controls.Maps"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+	xmlns:es="clr-namespace:Microsoft.Expression.Shapes;assembly=Microsoft.Expression.Drawing">
+
+    <!--Application Resources-->
+    <Application.Resources>
+        <Style TargetType="maps:Pushpin" x:Key="PushpinStyleStopWhite">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="maps:Pushpin">
+                        <Image HorizontalAlignment="Left" Source="/MobileMuni;component/Images/stop_white.png" x:Name="Image" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="maps:Pushpin" x:Key="PushpinStyleStopRed">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="maps:Pushpin">
+                        <Image HorizontalAlignment="Left" Source="/MobileMuni;component/Images/stop_red.png" x:Name="Image" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+		<Style TargetType="maps:Pushpin" x:Key="PushpinStyleCurrentLocation">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="maps:Pushpin">
+                    	<Grid>
+                    		<es:RegularPolygon Fill="White"
+								Stroke="{StaticResource MobileMuniRedBrush}"
+								StrokeThickness="3"
+								InnerRadius="0.47211"
+								Margin="5"
+								PointCount="5" 
+								Stretch="Fill" 
+								UseLayoutRounding="False"  />	              	
+						</Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Width" Value="Auto"/>
+        </Style>
+        <SolidColorBrush x:Name="MobileMuniRedBrush" Color="#FF632228" />
+    </Application.Resources>
+
+    <Application.ApplicationLifetimeObjects>
+        <!--Required object that handles lifetime events for the application-->
+        <shell:PhoneApplicationService 
+            Launching="Application_Launching" Closing="Application_Closing" 
+            Activated="Application_Activated" Deactivated="Application_Deactivated"/>
+    </Application.ApplicationLifetimeObjects>
+
+</Application>

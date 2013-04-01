@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="MobileMuni.FetchingOverlay"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+    
+    <Grid x:Name="LayoutRoot" Background="#CCFFFFFF">
+    	<TextBlock x:Name="Label" Margin="0" TextWrapping="Wrap" Text="updating routes and stops..." Foreground="{StaticResource MobileMuniRedBrush}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontFamily="Segoe WP Semibold"/>
+    	<ProgressBar Height="10" Margin="0" VerticalAlignment="Top" IsIndeterminate="True" Foreground="{StaticResource MobileMuniRedBrush}" Background="{StaticResource MobileMuniRedBrush}"/>
+
+    </Grid>
+</UserControl>

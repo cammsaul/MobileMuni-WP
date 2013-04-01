@@ -1,0 +1,64 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mobileMuni="clr-namespace:MobileMuni"
+    xmlns:es="clr-namespace:Microsoft.Expression.Shapes;assembly=Microsoft.Expression.Drawing" x:Class="MobileMuni.StopOverview" x:Name="Class"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="200" d:DesignWidth="400" Height="Auto" VerticalAlignment="Top" Width="480">
+	<UserControl.Resources>
+		<Storyboard x:Name="EntranceAnim">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="LayoutRoot">
+    			<EasingDoubleKeyFrame KeyTime="0" Value="90"/>
+    			<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+    		</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" VerticalAlignment="Top">
+    	<Grid.Projection>
+    		<PlaneProjection CenterOfRotationX="0" CenterOfRotationY="0"/>
+    	</Grid.Projection>
+        <StackPanel x:Name="MainVerticalStackPanel" Background="White" Margin="1,0,-1,0">
+        	<StackPanel x:Name="TitleHorizontalStackPanel" Height="100" VerticalAlignment="Top" Orientation="Horizontal">
+        		<StackPanel x:Name="LabelsVerticalStackPanel" Height="100" VerticalAlignment="Center" Margin="0" Width="480">
+        			<StackPanel Orientation="Horizontal">
+        				<StackPanel VerticalAlignment="Bottom" Width="310">
+        					<TextBlock Text="{Binding Title, FallbackValue=California St &amp; Fillmore St}" Margin="5,0,0,0" Foreground="Black" FontSize="26.667" VerticalAlignment="Top"/>
+        					<Button x:Name="SwitchDirectionButton" Content="27 - Inbound" Margin="-7,-10,0,-10" FontSize="14.667" BorderBrush="{StaticResource MobileMuniRedBrush}" Foreground="{StaticResource MobileMuniRedBrush}" Click="SwitchDirectionButton_Click" HorizontalAlignment="Left" Height="57"/>
+        					<TextBlock x:Name="PredictionsLabel"  Margin="5,0,0,0" TextWrapping="Wrap" Text="Bus in 2, 5, 12 minutes" Foreground="Black" VerticalAlignment="Top" d:LayoutOverrides="Width" FontSize="18.667"/>
+        					<Grid Height="100"/>
+        				</StackPanel>
+        				<StackPanel x:Name="FavoriteTileButtonsVerticalStackPanel" Width="176" HorizontalAlignment="Left">
+        					<Button x:Name="FavoriteButton" Content="add favorite" BorderBrush="{StaticResource MobileMuniRedBrush}" Foreground="{StaticResource MobileMuniRedBrush}" FontSize="16" Click="FavoriteButton_Click" Height="60" Margin="0,-4,0,-8" HorizontalAlignment="Left" Width="170"/>
+        					<Button x:Name="AddTileButton" Content="pin to start" BorderBrush="{StaticResource MobileMuniRedBrush}" Foreground="{StaticResource MobileMuniRedBrush}" FontSize="16" Click="AddTileButton_Click" Height="60" Margin="0,-6,0,-4" HorizontalAlignment="Left" Width="170"/>
+        				</StackPanel>
+        			</StackPanel>
+        		</StackPanel>
+        	</StackPanel>
+        	<Rectangle Fill="{StaticResource MobileMuniRedBrush}" Height="1"/>
+        	<StackPanel x:Name="ButtonsVerticalStackPanel" VerticalAlignment="Top">
+                <TextBlock x:Name="RoutesServedByThisStopLabel" TextWrapping="Wrap" Text="other routes served by this stop" Foreground="{StaticResource MobileMuniRedBrush}" FontSize="16" Margin="5,1,0,0"/>
+        		<!--<StackPanel Margin="0" Orientation="Horizontal" VerticalAlignment="Top" Height="60">
+        			<Button Content="27" Height="70" HorizontalAlignment="Left" BorderBrush="#FF632228" Width="102" Foreground="#FF632228" FontSize="14.667" FontFamily="Segoe WP Semibold" Margin="-3,-5"/>
+        			<Button Content="30" Height="70" HorizontalAlignment="Left" BorderBrush="#FF632228" Width="102" Foreground="#FF632228" FontSize="14.667" Margin="-3,-5" FontFamily="Segoe WP Semibold"/>
+        			<Button Content="45" Height="70" HorizontalAlignment="Left" BorderBrush="#FF632228" Width="102" Foreground="#FF632228" FontSize="14.667" Margin="-3,-5" FontFamily="Segoe WP Semibold"/>
+        			<Button Content="N OWL" Height="70" HorizontalAlignment="Left" BorderBrush="#FF632228" Width="102" Foreground="#FF632228" FontSize="14.667" Margin="-3,-5" FontFamily="Segoe WP Semibold"/>
+        			<Button Content="M OWL" Height="70" HorizontalAlignment="Left" BorderBrush="#FF632228" Width="102" Foreground="#FF632228" FontSize="14.667" Margin="-3,-5" FontFamily="Segoe WP Semibold"/>
+        		</StackPanel>
+        		<StackPanel Margin="0" Orientation="Horizontal" VerticalAlignment="Top" Height="60">
+        			<Button Content="27" Height="70" HorizontalAlignment="Left" BorderBrush="#FF632228" Width="102" Foreground="#FF632228" FontSize="14.667" FontFamily="Segoe WP Semibold" Margin="-3,-5"/>
+        			<Button Content="30" Height="70" HorizontalAlignment="Left" BorderBrush="#FF632228" Width="102" Foreground="#FF632228" FontSize="14.667" Margin="-3,-5" FontFamily="Segoe WP Semibold"/>
+        			<Button Content="45" Height="70" HorizontalAlignment="Left" BorderBrush="#FF632228" Width="102" Foreground="#FF632228" FontSize="14.667" Margin="-3,-5" FontFamily="Segoe WP Semibold"/>
+        			<Button Content="N OWL" Height="70" HorizontalAlignment="Left" BorderBrush="#FF632228" Width="102" Foreground="#FF632228" FontSize="14.667" Margin="-3,-5" FontFamily="Segoe WP Semibold"/>
+        			<Button Content="M OWL" Height="70" HorizontalAlignment="Left" BorderBrush="#FF632228" Width="102" Foreground="#FF632228" FontSize="14.667" Margin="-3,-5" FontFamily="Segoe WP Semibold"/>
+        		</StackPanel>-->
+        	</StackPanel>
+			<Rectangle Fill="{StaticResource MobileMuniRedBrush}" Height="1"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

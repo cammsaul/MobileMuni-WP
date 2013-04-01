@@ -1,0 +1,60 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="MobileMuni.FoursquareGeocoderResultsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">            
+            <TextBlock Name="TitleTextBlock" Text="[start/destination]" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="{StaticResource MobileMuniRedBrush}" FontFamily="Segoe WP"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <ProgressBar x:Name="ProgressBar" Margin="0" Background="{x:Null}" Foreground="{StaticResource MobileMuniRedBrush}" IsIndeterminate="True" VerticalAlignment="Center" Height="10" Visibility="Visible" />
+            <ListBox x:Name="ListBox" Margin="0">
+                <!--<ListBoxItem>
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                		<Grid Height="80" Width="80" Background="{StaticResource MobileMuniRedBrush}" Margin="10">
+                			<Image Source="/Images/FoursquareIcons/fs_arts_entertainment_arcade.png" Margin="20"/>
+                		</Grid>
+                		<StackPanel VerticalAlignment="Center">
+                			<TextBlock Text="Union Square" FontFamily="Segoe WP Semibold" Foreground="{StaticResource MobileMuniRedBrush}" Tap="TextBox_Tap_1" Margin="10,0,0,0" FontSize="32"/>
+                			<TextBlock Text="420 Mason St, San Francisco, CA" FontFamily="Segoe WP" Foreground="{StaticResource MobileMuniRedBrush}" Tap="TextBox_Tap_1" Margin="10,5,0,0"/>
+                		</StackPanel>
+                	</StackPanel>
+                </ListBoxItem>-->
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Tap="StackPanel_Tap_1">
+                            <Grid Height="80" Width="80" Background="{StaticResource MobileMuniRedBrush}" Margin="10,20" >
+                                <Image Source="{Binding IconFilename}" Margin="20"/>
+                            </Grid>
+                            <StackPanel VerticalAlignment="Center" Margin="0,5,0,10">
+                                <TextBlock Text="{Binding Name}" FontFamily="Segoe WP Semibold" Foreground="{StaticResource MobileMuniRedBrush}" Margin="10,0,0,0" FontSize="32" />
+                                <TextBlock Text="{Binding Address}" FontFamily="Segoe WP" Foreground="{StaticResource MobileMuniRedBrush}" Margin="10,5,0,0" />
+                            </StackPanel>
+                        </StackPanel>                        
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

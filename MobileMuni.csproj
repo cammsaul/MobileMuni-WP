@@ -1,0 +1,565 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C315BEAA-1ACC-4A0D-8F84-74F88A2E71CB}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MobileMuni</RootNamespace>
+    <AssemblyName>MobileMuni</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>MobileMuni.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>MobileMuni.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.30816.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FlurryWP7SDK, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit">
+      <HintPath>..\packages\WPtoolkit.4.2012.10.30\lib\sl4-windowsphone71\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Google.AdMob.Ads.WindowsPhone7, Version=4.0.1.27070, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Advertising.Mobile.UI, Version=6.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Drawing" />
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Controls.Maps, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e" />
+    <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="System.Device" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Servicemodel.Web" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="mscorlib.extensions" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models+Stores\BookmarkStore.cs" />
+    <Compile Include="Models+Stores\Favorite.cs" />
+    <Compile Include="Models+Stores\FavoriteStore.cs" />
+    <Compile Include="Models+Stores\Fetcher.cs" />
+    <Compile Include="Models+Stores\FoursquareFetcher.cs" />
+    <Compile Include="Models+Stores\Geocoder.cs" />
+    <Compile Include="Models+Stores\PredictionFetcher.cs" />
+    <Compile Include="Models+Stores\RouteFinderResult.cs" />
+    <Compile Include="Models+Stores\RouteFinderResultsManager.cs" />
+    <Compile Include="Models+Stores\StateMachine.cs" />
+    <Compile Include="Models+Stores\Route.cs" />
+    <Compile Include="Models+Stores\RouteStore.cs" />
+    <Compile Include="Models+Stores\Settings.cs" />
+    <Compile Include="Models+Stores\Stop.cs" />
+    <Compile Include="Models+Stores\StopStore.cs" />
+    <Compile Include="Models+Stores\Utility.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels+Views\ArrowMapPolyline.cs" />
+    <Compile Include="ViewModels+Views\BookmarksPage.xaml.cs">
+      <DependentUpon>BookmarksPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels+Views\FavoritesView.xaml.cs">
+      <DependentUpon>FavoritesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels+Views\FetchingOverlay.xaml.cs">
+      <DependentUpon>FetchingOverlay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels+Views\FoursquareGeocoderResultsPage.xaml.cs">
+      <DependentUpon>FoursquareGeocoderResultsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels+Views\IEntranceExitAnimation.cs" />
+    <Compile Include="ViewModels+Views\MapControl.xaml.cs">
+      <DependentUpon>MapControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels+Views\RouteFinderResultsPage.xaml.cs">
+      <DependentUpon>RouteFinderResultsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels+Views\RouteFinderView.xaml.cs">
+      <DependentUpon>RouteFinderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels+Views\RouteOverview.xaml.cs">
+      <DependentUpon>RouteOverview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels+Views\RoutePicker.xaml.cs">
+      <DependentUpon>RoutePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels+Views\StopOverview.xaml.cs">
+      <DependentUpon>StopOverview.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModels+Views\BookmarksPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModels+Views\FavoritesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModels+Views\FetchingOverlay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModels+Views\FoursquareGeocoderResultsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModels+Views\MapControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModels+Views\RouteFinderResultsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModels+Views\RouteFinderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModels+Views\RouteOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModels+Views\RoutePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ViewModels+Views\StopOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admob-sdk\Google.AdMob.Ads.WindowsPhone7.dll" />
+    <Content Include="admob-sdk\Google.AdMob.Ads.WindowsPhone7.xml" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_arcade.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_artgallery.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_billiards.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_bowling.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_casino.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_comedyclub.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_default.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_historicsite.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_movietheater.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_movietheater_cineplex.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_movietheater_indietheater.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_museum.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_museum_art.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_museum_history.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_museum_planetarium.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_museum_science.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_musicvenue.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_musicvenue_jazzclub.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_musicvenue_pianobar.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_musicvenue_rockclub.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_performingarts_dancestudio.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_performingarts_indieoffbroadway.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_performingarts_operahouse.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_performingarts_theater.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_racetrack.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_stadium.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_stadium_baseball.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_stadium_basketball.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_stadium_cricket.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_stadium_football.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_stadium_hockey.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_stadium_soccer.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_stadium_tennis.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_stadium_track.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_themepark.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_waterpark.png" />
+    <Content Include="Images\FoursquareIcons\fs_arts_entertainment_zoo.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_animalshelter.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_apartment.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_auditorium.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_cityhall.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_conventioncenter.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_conventioncenter_meetingroom.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_default.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_eventspace.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_factory.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_fair.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_funeralhome.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_government.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_government_capitolbuilding.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_government_courthouse.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_government_firestation.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_government_monument.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_government_policestation.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_gym.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_home.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_housingdevelopment.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_library.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_medical.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_medical_dentist.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_medical_doctorsoffice.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_medical_ems.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_medical_hospital.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_medical_laboratory.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_medical_opticalshop.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_medical_veterinarian.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_militarybase.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_office_conferenceroom.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_office_coworkingspace.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_parking.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_postoffice.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_religious.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_religious_church.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_religious_mosque.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_religious_shrine.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_religious_synagogue.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_religious_temple.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_school.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_school_music.png" />
+    <Content Include="Images\FoursquareIcons\fs_building_votingbooth.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_academicbuilding.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_administrativebuilding.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_cafeteria.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_classroom.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_collegeacademicbuildings_communications.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_collegeacademicbuildings_engineering.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_collegeacademicbuildings_history.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_collegeacademicbuildings_math.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_collegeacademicbuildings_science.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_collegeacademicbuildings_technology.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_collegetheater.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_communitycollege.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_default.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_frathouse.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_lab.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_lawschool.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_other.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_quad.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_reccenter.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_residencehall.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_sororityhouse.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_stadium.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_stadium_baseball.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_stadium_basketball.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_stadium_cricket.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_stadium_football.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_stadium_hockey.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_stadium_soccer.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_stadium_tennis.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_stadium_track.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_studentcenter.png" />
+    <Content Include="Images\FoursquareIcons\fs_education_tradeschool.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_african.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_arepas.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_argentinian.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_asian.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_australian.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_bagels.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_bakery.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_bbq.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_brazilian.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_breakfast.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_brewery.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_burger.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_burrito.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_cafe.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_cafeteria.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_cajun.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_caribbean.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_chinese.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_coffeeshop.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_cupcakes.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_default.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_deli.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_dessert.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_dimsum.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_diner.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_donuts.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_dumplings.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_falafel.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_fastfood.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_fishandchips.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_french.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_friedchicken.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_gastropub.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_german.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_glutenfree.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_greek.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_hotdog.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_icecream.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_italian.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_japanese.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_juicebar.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_korean.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_latinamerican.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_macandcheese.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_mediterranean.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_mexican.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_moleculargastronomy.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_moroccan.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_paella.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_pizza.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_ramen.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_salad.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_sandwiches.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_scandinavian.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_seafood.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_snacks.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_soup.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_southern.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_spanish.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_steakhouse.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_streetfood.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_sushi.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_taco.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_tapas.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_tearoom.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_thai.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_turkish.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_vegetarian.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_winery.png" />
+    <Content Include="Images\FoursquareIcons\fs_food_wings.png" />
+    <Content Include="Images\FoursquareIcons\fs_nightlife_bar.png" />
+    <Content Include="Images\FoursquareIcons\fs_nightlife_beergarden.png" />
+    <Content Include="Images\FoursquareIcons\fs_nightlife_cocktails.png" />
+    <Content Include="Images\FoursquareIcons\fs_nightlife_default.png" />
+    <Content Include="Images\FoursquareIcons\fs_nightlife_divebar.png" />
+    <Content Include="Images\FoursquareIcons\fs_nightlife_gaybar.png" />
+    <Content Include="Images\FoursquareIcons\fs_nightlife_hookahbar.png" />
+    <Content Include="Images\FoursquareIcons\fs_nightlife_karaoke.png" />
+    <Content Include="Images\FoursquareIcons\fs_nightlife_lounge.png" />
+    <Content Include="Images\FoursquareIcons\fs_nightlife_nightclub.png" />
+    <Content Include="Images\FoursquareIcons\fs_nightlife_pub.png" />
+    <Content Include="Images\FoursquareIcons\fs_nightlife_sake.png" />
+    <Content Include="Images\FoursquareIcons\fs_nightlife_secretbar.png" />
+    <Content Include="Images\FoursquareIcons\fs_nightlife_sportsbar.png" />
+    <Content Include="Images\FoursquareIcons\fs_nightlife_stripclub.png" />
+    <Content Include="Images\FoursquareIcons\fs_nightlife_whiskey.png" />
+    <Content Include="Images\FoursquareIcons\fs_nightlife_wine.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_baseballfield.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_basketballcourt.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_beach.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_bridge.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_campground.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_cemetery.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_default.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_dogrun.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_farm.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_field.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_garden.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_gardencenter.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_golfcourse.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_harbor.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_hikingtrail.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_hotspring.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_lake.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_lighthouse.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_mountain.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_neighborhood.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_outdoors.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_park.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_playground.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_plaza.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_pool.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_river.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_sceniclookout.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_sculpture.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_skate_park.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_skatingrink.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_ski_apresskibar.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_ski_chairlift.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_ski_chalet.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_ski_lodge.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_ski_snowboard.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_ski_trail.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_stable.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_surfspot.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_vineyard.png" />
+    <Content Include="Images\FoursquareIcons\fs_parks_outdoors_volleyballcourt.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_airport_rentalcar.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_antique.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_apparel.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_apparel_accessories.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_apparel_boutique.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_apparel_kids.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_apparel_lingerie.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_apparel_men.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_apparel_shoestore.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_apparel_women.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_artstore.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_automotive.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_beauty_cosmetic.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_bikeshop.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_boardshop.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_bookstore.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_bridal.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_camerastore.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_candystore.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_carwash.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_conveniencestore.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_daycare.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_default.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_departmentstore.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_design.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_financial.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_fleamarket.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_flowershop.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_foodanddrink.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_food_butcher.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_food_cheese.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_food_farmersmarket.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_food_fishmarket.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_food_foodcourt.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_food_gourmet.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_food_grocery.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_food_liquor.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_food_wineshop.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_furniture.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_gamingcafe.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_gas.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_giftshop.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_gym_martialarts.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_gym_pool.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_gym_track.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_gym_yogastudio.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_hardware.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_hobbyshop.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_internetcafe.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_jewelry.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_laundry.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_mall.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_mobilephoneshop.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_music_instruments.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_nailsalon.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_newsstand.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_papergoods.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_pet_store.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_pharmacy.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_photographylab.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_record_shop.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_recycling.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_salon_barber.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_spa.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_sports_outdoors.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_storage.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_tanning_salon.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_tattoos.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_technology.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_tobacco.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_toys.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_video.png" />
+    <Content Include="Images\FoursquareIcons\fs_shops_videogames.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_airport.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_airport_gate.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_airport_lounge.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_airport_terminal.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_airport_tram.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_bedandbreakfast.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_boat.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_busstation.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_default.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_embassy.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_ferry.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_ferry_pier.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_highway.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_hostel.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_hotel.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_hotel_bar.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_hotel_roofdeck.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_lightrail.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_lounge.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_movingtarget.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_resort.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_restarea.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_subway.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_taxi.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_trainstation.png" />
+    <Content Include="Images\FoursquareIcons\fs_travel_travelagency.png" />
+    <Content Include="Json.NET\Newtonsoft.Json.dll" />
+    <Content Include="Json.NET\Newtonsoft.Json.xml" />
+    <Content Include="FlurryWP7SDK.dll" />
+    <Content Include="Images\appbar.favorites.png" />
+    <Content Include="ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="README_FIRST.txt" />
+    <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
+    <Resource Include="Images\stop_white.png" />
+    <Content Include="Images\appbar.finder.png" />
+    <Content Include="Images\appbar.nearby.png" />
+    <Content Include="Images\appbar.routes.png" />
+    <Resource Include="Images\stop_red.png" />
+    <Content Include="Images\Background_Blank.png" />
+    <Content Include="Images\Background_Transparent.png" />
+    <Content Include="SplashScreenImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>

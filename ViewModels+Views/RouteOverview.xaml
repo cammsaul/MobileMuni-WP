@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="MobileMuni.RouteOverview" x:Name="Class"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mobileMuni="clr-namespace:MobileMuni"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480" Width="480" Height="150" VerticalAlignment="Top" DataContext="{Binding ElementName=Class, Path=Route}">
+	<UserControl.Resources>
+		<mobileMuni:Route x:Key="RouteDataSource" x:Name="Route" d:IsDataSource="True"/>
+		<Storyboard x:Name="EntranceAnim">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="LayoutRoot">
+    			<EasingDoubleKeyFrame KeyTime="0" Value="90"/>
+    			<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+    		</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</UserControl.Resources>
+    
+    <Grid x:Name="LayoutRoot" Width="480" Height="150" VerticalAlignment="Top" Background="#E5FFFFFF">
+    	<Grid.Projection>
+    		<PlaneProjection CenterOfRotationX="0" CenterOfRotationY="0"/>
+    	</Grid.Projection>
+    	<Grid.RenderTransform>
+    		<CompositeTransform/>
+    	</Grid.RenderTransform>
+    	<TextBlock Text="{Binding Tag, FallbackValue='N OWL'}" Margin="5,0,0,0" Foreground="{StaticResource MobileMuniRedBrush}" FontSize="55" Width="150" 
+		VerticalAlignment="Center" TextAlignment="Center" FontFamily="Segoe WP Black" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+    	<StackPanel HorizontalAlignment="Right" Width="325">
+    		<TextBlock Text="{Binding Title, FallbackValue='N-Owl'}" Height="40" Margin="0,0,10,0" Foreground="Black" FontSize="26.667" HorizontalAlignment="Right" TextAlignment="Right" FontWeight="Bold"/>
+    		<TextBlock Text="{Binding CurrentDirectionTitle, FallbackValue='Outbound to La Playa &amp; Judah'}" Margin="5,15,10,0" Foreground="Black" FontSize="18.667" TextAlignment="Right"/>
+            <Button x:Name="SwitchDirectionButton" Content="switch to inbound" Margin="100,10,0,0" d:LayoutOverrides="Width" FontSize="16" BorderBrush="{StaticResource MobileMuniRedBrush}" Foreground="{StaticResource MobileMuniRedBrush}" Click="SwitchDirectionButton_Click"/>
+    	</StackPanel>
+		<Rectangle Fill="{StaticResource MobileMuniRedBrush}" Height="1" VerticalAlignment="Bottom"/>
+    </Grid>
+</UserControl>
